@@ -26,7 +26,7 @@ my $versions = {
         ],
         [
             [qw/java -version/],
-            qr/^(openjdk|java) version "(11.0.(16|21|22|23|24)|17\.0\.(12|13))" /m
+qr/^(openjdk|java) version "(11.0.(16|21|22|23|24)|17\.0\.(12|13))" /m
         ],
         [
             [qw/java -version/],
