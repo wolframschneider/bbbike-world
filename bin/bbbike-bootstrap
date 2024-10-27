@@ -1,10 +1,10 @@
 #!/bin/sh
-# Copyright (c) 2009-2015 Wolfram Schneider, https://bbbike.org
+# Copyright (c) 2009-2024 Wolfram Schneider, https://bbbike.org
 #
 # bbbike-bootstrap - initial bbbike checkout from github in current
 #                    working directory
 #
-# curl -sSfL https://github.com/wosch/bbbike-world/raw/world/bin/bbbike-bootstrap | /bin/sh
+# curl --connect-timeout 5 -m 360 -sSfL https://github.com/wosch/bbbike-world/raw/world/bin/bbbike-bootstrap | /bin/sh
 #
 
 set -e
@@ -12,8 +12,8 @@ set -e
 bbbike_tarball=$(mktemp bbbike-tarball.XXXXXXXX)
 bbbike_checkout=$(mktemp bbbike-checkout.XXXXXXXX)
 
-curl -sSfL https://github.com/wosch/bbbike-world/raw/world/bin/bbbike-tarball > $bbbike_tarball
-curl -sSfL https://github.com/wosch/bbbike-world/raw/world/bin/bbbike-checkout > $bbbike_checkout
+curl --connect-timeout 5 -m 360 -sSfL https://github.com/wosch/bbbike-world/raw/world/bin/bbbike-tarball > $bbbike_tarball
+curl --connect-timeout 5 -m 360 -sSfL https://github.com/wosch/bbbike-world/raw/world/bin/bbbike-checkout > $bbbike_checkout
 
 chmod 755 $bbbike_tarball $bbbike_checkout
 bbbike_checkout=$bbbike_checkout sh $bbbike_tarball

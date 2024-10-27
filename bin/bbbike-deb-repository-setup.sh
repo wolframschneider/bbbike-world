@@ -56,7 +56,7 @@ init_apt_bbbike() {
     fi
 
     if [ $flag = "1" ]; then
-        curl -sSf $apt_key | sudo apt-key add -
+        curl --connect-timeout 5 -m 36 -sSf $apt_key | sudo apt-key add -
 	sudo apt-get install -y apt-transport-https
         sudo apt-get update -qq
     fi

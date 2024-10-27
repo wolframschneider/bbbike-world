@@ -104,7 +104,7 @@ sub generate_urls {
 
         my $url = $uri->as_string;
 
-        print qq{curl -sSf "$url" -A "$user_agent"\0};
+        print qq{curl --connect-timeout 5 -m 36 -sSf "$url" -A "$user_agent"\0};
     }
 }
 
