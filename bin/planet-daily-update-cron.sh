@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (c) Jul 2021-2023 Wolfram Schneider, https://bbbike.org
+# Copyright (c) Jul 2021-2024 Wolfram Schneider, https://bbbike.org
 #
 # planet-daily-update-cron - wrapper for planet-daily-update called by a cron job
 #
@@ -21,7 +21,9 @@ fi
 
 cd $HOME/projects/bbbike
 logfile="tmp/log.planet-daily-update"
-touch $logfile
+if [ -e $logfile ]; then
+  gzip -f $logfile
+fi
 
 sub_planet="sub-planet-daily"
 tagname="build-tagname-db"
