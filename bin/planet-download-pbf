@@ -1,5 +1,5 @@
 #!/usr/local/bin/bash
-# Copyright (c) 2009-2023 Wolfram Schneider, https://bbbike.org
+# Copyright (c) 2009-2024 Wolfram Schneider, https://bbbike.org
 #
 # planet-download - download the latest planet.osm.pbf file
 #
@@ -24,10 +24,10 @@ trap 'rm -rf $tmpdir' 0
 cd $tmpdir
 
 # get md5 checksum
-curl -L -sSf -o $file_latest.md5 $planet_osm_server/$file_latest.md5
+curl --connect-timeout 5 -m 36 -L -sSf -o $file_latest.md5 $planet_osm_server/$file_latest.md5
 
 # download planet.osm and create the planet without meta data on the fly
-curl -o $file_latest --http1.1 --ipv4 -L -sSf $planet_osm_server/$file_latest
+curl --connect-timeout 5 -m 36000 -o $file_latest --http1.1 --ipv4 -L -sSf $planet_osm_server/$file_latest
 
 # create timestamp file / nometa
 osmconvert --out-timestamp $file_latest > $file_latest.timestamp

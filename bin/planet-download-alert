@@ -44,7 +44,7 @@ if [ -e $update_lock ]; then
   fi
 fi
 
-curl -L -sSf -v $planet_osm_server/$file.md5 > $update_new 2> $update_new.head
+curl --connect-timeout 5 -m 36 -L -sSf -v $planet_osm_server/$file.md5 > $update_new 2> $update_new.head
 
 # we compare the MD5 checksum of the original planet.osm file
 if test -e $update && cmp $update $update_new 2>/dev/null ; then
@@ -53,8 +53,8 @@ if test -e $update && cmp $update $update_new 2>/dev/null ; then
 
 else
    logfile=tmp/log.planet-download-pbf
-   new=$(curl -L -sSf --head --location $planet_osm_server/$file | perl -ne 'print "$1\n" if /^Content-Length:\s+(\d+)/i')
-   curl -L -sSf --head --location $planet_osm_server/$file | egrep -i "^(Content-Length:|Last-|Location:)" >> $logfile
+   new=$(curl --connect-timeout 5 -L -sSf --head --location $planet_osm_server/$file | perl -ne 'print "$1\n" if /^Content-Length:\s+(\d+)/i')
+   curl --connect-timeout 5 -L -sSf --head --location $planet_osm_server/$file | egrep -i "^(Content-Length:|Last-|Location:)" >> $logfile
 
    if [ -n "$automatic_update" ]; then
      if [ $new -gt $planet_osm_min_size ]; then
