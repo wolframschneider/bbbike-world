@@ -9,12 +9,12 @@ set -e
 
 # load standard BBBike extract config
 if [ -f $HOME/.bbbikerc ]; then
-    . $HOME/.bbbikerc
+  . $HOME/.bbbikerc
 fi
 
 # tagname config
 if [ -f $HOME/.tagnamerc ]; then
-    . $HOME/.tagnamerc
+  . $HOME/.tagnamerc
 fi
 
 : ${time="time nice -6"}
