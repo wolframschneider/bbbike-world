@@ -1,0 +1,38 @@
+FROM ubuntu:jammy
+MAINTAINER Wolfram Schneider <wosch@FreeBSD.org>
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update -q && apt-get upgrade -y
+RUN apt-get install -y git make curl apt-transport-https sudo vim telnet gnupg2
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
+
+RUN mkdir -p /opt/bbbike/projects
+WORKDIR /opt/bbbike/projects
+ENV HOME /opt/bbbike
+
+RUN useradd -ms /bin/bash tile
+RUN echo 'tile   ALL=NOPASSWD: ALL' >> /etc/sudoers
+RUN chown -R tile:tile /opt/bbbike/projects
+USER tile
+
+# git checkout
+RUN mkdir mc
+RUN git clone --depth=1 https://github.com/wosch/bbbike.git
+WORKDIR /opt/bbbike/projects/bbbike
+RUN git clone --depth=1 https://github.com/wosch/bbbike-world.git world
+RUN make -f world/Makefile.osm create-makefile-symlinks
+RUN ./world/bin/bbbike-deb-repository-setup.sh
+
+# install tile software
+RUN make -C./world/tile reinstall
+
+# package cleanup
+RUN sudo apt-get autoclean
+RUN sudo apt-get clean
+
+EXPOSE 8080
+
+CMD ["/bin/sh", "-c", "make mapnik-restart && bash"]
+
+# see ./README

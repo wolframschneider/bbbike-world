@@ -1686,7 +1686,7 @@ docker-build-tilemaker-ubuntu16:
 
 # see world/etc/docker/README
 docker-build-tile:
-	${BBMAKE} DOCKER_IMAGE_FILE=tile-ubuntu20 DOCKER_BBBIKE_TAG=bbbike/tile docker-build
+	${BBMAKE} DOCKER_IMAGE_FILE=tile-ubuntu22 DOCKER_BBBIKE_TAG=bbbike/tile docker-build
 docker-shell-tile:
 	${BBMAKE} DOCKER_BBBIKE_TAG=bbbike/tile docker-shell
 docker-shell-tilemaker:
