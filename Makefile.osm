@@ -1650,12 +1650,11 @@ docker-check-w:
 docker-build-all:
 	${NICE} ${BBMAKE} -j${MAX_CPU} \
 	  docker-build-extract-debian11 \
-	  #docker-build-extract-debian12 \
+	  docker-build-extract-debian12 \
 
 docker-build-libosmium-all:
 	${NICE} ${BBMAKE} -j${MAX_CPU} \
 	  docker-build-libosmium-debian11 \
-	  #docker-build-libosmium-debian12 \
 
 
 DOCKER_CHECK_ALL_COMMAND=docker-check
@@ -1674,8 +1673,6 @@ docker-build-extract-debian12:
 
 docker-build-libosmium-debian11:
 	${BBMAKE} DOCKER_IMAGE_FILE=libosmium-debian11 DOCKER_BBBIKE_TAG=bbbike/libosmium-debian11 docker-build
-docker-build-libosmium-debian12:
-	${BBMAKE} DOCKER_IMAGE_FILE=libosmium-debian12 DOCKER_BBBIKE_TAG=bbbike/libosmium-debian12 docker-build
 
 # ubuntu
 docker-build-extract-ubuntu22:
@@ -1821,16 +1818,18 @@ help:
 	@echo "  [ check | check-world | check-full | check-failed ]"
 	@echo "  [ check-tileserver ]"
 	@echo ""
+	@echo "make docker-build-extract-debian11"
+	@echo "make docker-build-extract-debian12"
+	@echo "make docker-build-extract-ubuntu22"
+	@echo "make docker-build-all"
+	@echo ""
+	@echo "make docker-clean"
+	@echo "make docker-distclean"
+	@echo "make docker-distclean-real"
+	@echo ""
 	@echo "  [ docker-check | docker-check-w | docker-check-all ]"
 	@echo "  [ docker-build-tile | docker-shell-tile ]"
-	@echo "  [ docker-build-extract-debian12 | docker-build-extract-debian11 ]"
-	@echo "  [ docker-build-extract-ubuntu22 ]"
-	@echo "  [ docker-build-libosmium-debian11 ]"
-	@echo "  [ docker-build-libosmium-debian12 ]"
-	@echo "  [ docker-build-libosmium-ubuntu22 ]"
 	@echo "  [ docker-build-tilemaker-ubuntu16 ]"
-	@echo "  [ docker-build-all | docker-build-libosmium-all ]"
-	@echo "  [ docker-clean | docker-distclean | docker-distclean-real ]"
 	@echo ""
 	@echo "make download-bbbike-org-install"
 	@echo "make extract-bbbike-org-install"
