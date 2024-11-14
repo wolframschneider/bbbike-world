@@ -11,7 +11,7 @@ RUN apt-get install -y git make sudo vim wget curl pixz rsync \
 
 RUN apt-get install -y libboost-all-dev protobuf-compiler \
   libgdal-dev libsparsehash-dev spatialite-bin libgeos++-dev \
-  libproj-dev libbz2-dev liblz4-dev 
+  libproj-dev libbz2-dev liblz4-dev nlohmann-json3-dev
 
 RUN useradd -ms /bin/bash libosmium && \
   echo 'libosmium ALL=NOPASSWD: ALL' >> /etc/sudoers
