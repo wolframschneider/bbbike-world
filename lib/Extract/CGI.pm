@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Copyright (c) 2011-2024 Wolfram Schneider, https://bbbike.org
+# Copyright (c) 2011-2025 Wolfram Schneider, https://bbbike.org
 #
 # helper functions for extract.cgi
 
@@ -440,7 +440,7 @@ qq{\n<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js
   @{[ $self->footer_top($q, 'error' => $error, 'map' => $args{'map'}, 'css' => $args{'css'} ) ]}
   <hr/>
   <div id="copyright" class="normalscreen">
-    (&copy;) 2024 <a href="https://www.bbbike.org">BBBike.org</a>
+    (&copy;) 2025 <a href="https://www.bbbike.org">BBBike.org</a>
     @{[ M("by") ]} <a href="https://wolfram.schneider.org">Wolfram Schneider</a><br/>
     Map data (&copy;) <a href="https://www.openstreetmap.org/copyright" title="OpenStreetMap License">OpenStreetMap.org</a> contributors
   <div id="footer_community"></div>

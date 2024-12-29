@@ -26,7 +26,7 @@ Your donation helps to pay for hosting the service. Many thanks!
 Sincerely, the BBBike extract Fairy
 
 --
-Copyright (c) 2011-2024 https://bbbike.org
+Copyright (c) 2011-2025 https://bbbike.org
 https://www.BBBike.org/community.html - We appreciate any feedback, suggestions and a donation!
 
 All Data from OpenStreetMap is licensed under the
