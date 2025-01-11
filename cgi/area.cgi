@@ -513,22 +513,20 @@ EOF
 print qq{<div id="bottom">\n};
 print qq{<div id="more_cities" style="display:none;">\n};
 print qq{<div id="more_cities_inner">\n};
+
 foreach my $c (@city_list) {
     next if $c eq 'dummy' || $c eq 'bbbike';
     print qq{<a href="}
       . ( $offline ? "../$c/" : qq{?city=$c} )
       . qq{">$c</a>\n};
 }
+
 print
 qq{\n| <span id="maplink"><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=http:%2F%2Fwww.bbbike.org%2Fbbbike-world.kml&amp;ie=UTF8&amp;t=p&amp;ll=52.961875,12.128906&amp;spn=22.334434,47.460938&amp;z=4" >View on a Map</a></span>\n};
 print qq{</div><!-- more cities inner -->\n};
 print qq{</div><!-- more cities -->\n};
-
 print &footer( "cities" => \@city_list, 'city' => $city );
-
 print "</div> <!-- bottom x -->\n";
-EOF
-
 print $q->end_html;
 
 1;
