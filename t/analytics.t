@@ -28,11 +28,13 @@ diag "analytics code: $analytics\n" if $debug >= 2;
 isnt( $analytics, undef, "analytics class is success" );
 cmp_ok( length($analytics), ">", -1, "analytics size" );
 
-$analytics = BBBike::Analytics->new( 'q' => $q, 'tracker_id' => "foobar123" )->google_analytics;
+$analytics = BBBike::Analytics->new( 'q' => $q, 'tracker_id' => "foobar123" )
+  ->google_analytics;
 diag "analytics code: $analytics\n" if $debug >= 2;
 
 isnt( $analytics, undef, "analytics class is success" );
 cmp_ok( length($analytics), ">", -1, "analytics size" );
+
 #like( $analytics, qr/foobar123/, "tracker id check" );
 
 $ENV{HTTP_HOST} = "dev1.bbbike.org";

@@ -371,8 +371,8 @@ sub footer {
     my $html = $args{'html'} // "";
 
     my $analytics = "";
-    my $url   = $q->url( -relative => 1 );
-    my $error = $args{'error'} || 0;
+    my $url       = $q->url( -relative => 1 );
+    my $error     = $args{'error'} || 0;
 
     my $locate =
       $args{'map'} ? ' | <a href="javascript:locateMe()">where am I?</a>' : "";
