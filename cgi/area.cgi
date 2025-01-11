@@ -527,17 +527,6 @@ print qq{</div><!-- more cities -->\n};
 print &footer( "cities" => \@city_list, 'city' => $city );
 
 print "</div> <!-- bottom x -->\n";
-
-print <<EOF;
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-286675-22"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-286675-22');
-</script>
 EOF
 
 print $q->end_html;
