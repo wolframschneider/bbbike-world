@@ -370,11 +370,7 @@ sub footer {
 
     my $html = $args{'html'} // "";
 
-    my $analytics =
-      $option->{"enable_google_analytics"}
-      ? BBBike::Analytics->new( 'q' => $q, 'tracker_id' => "UA-286675-21" )
-      ->google_analytics
-      : "";
+    my $analytics = "";
     my $url   = $q->url( -relative => 1 );
     my $error = $args{'error'} || 0;
 
